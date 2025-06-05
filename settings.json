@@ -1,0 +1,12 @@
+{
+    "page_title": "Registro de Asistencia",
+    "subtitle": "Por favor ingresa tus datos abajo",
+    "logo_url": "",
+    "form_name_label": "Nombre",
+    "enable_question_1": false,
+    "question_1_label": "Pregunta 1",
+    "enable_question_2": false,
+    "question_2_label": "Pregunta 2",
+    "submit_button_label": "Registrar",
+    "form_enabled": true
+}

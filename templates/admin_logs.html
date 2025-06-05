@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registros de Asistencia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"  rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+
+    <div class="card p-4">
+        <h3 class="mb-4 text-center">Registros de Hoy</h3>
+
+        {% if logs %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        {% for header in headers %}
+                        <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        {% for col in log.values() %}
+                        <td>{{ col }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-grid gap-2 d-md-block mb-3">
+            <a href="/admin/download" class="btn btn-success me-2">Descargar Archivo Excel</a>
+            <a href="/admin/clear" class="btn btn-danger" onclick="return confirm('¿Estás seguro?')">Borrar Registros</a>
+        </div>
+        {% else %}
+        <div class="alert alert-info text-center">
+            No se encontraron registros para hoy.
+        </div>
+        {% endif %}
+
+        <hr class="my-4">
+        <a href="/admin/settings" class="btn btn-secondary w-100">⚙️ Editar Configuración</a>
+        <a href="/" class="btn btn-primary w-100 mt-2">Volver al Inicio</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>    
+</body>
+</html>

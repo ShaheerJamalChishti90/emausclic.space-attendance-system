@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Celular Ya Registrado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"  rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-custom {
+            background-color: #6c757d; /* Bootstrap secondary color */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+
+    <div class="card p-5 text-center">
+        <h2 class="text-danger">Celular Ya Registrado</h2>
+        <p class="lead">{{ subtitle }}</p>
+
+        <!-- Volver al Login -->
+        <a href="{{ url_for('index') }}" class="btn-custom">Regresar a Login</a>
+    </div>
+</div>
+</body>
+</html>
